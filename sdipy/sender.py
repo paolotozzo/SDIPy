@@ -34,7 +34,7 @@ class Sender(object):
       
     #For each extra attribute add it to the object to expose it
     for arg in kwargs:
-      if arg not in allowedAttributes:                    #If it's not an allowed attribute according to OBMP
+      if arg not in allowedAttributes:                    #If it's not an allowed attribute according to SDIP
         allowedList = ""                                  #Used for nicely formatted warning
         for attribute in allowedAttributes:               #For each of the attributes in the list
           if allowedList != "": allowedList = allowedList + ", " + attribute    #Nicely formatted :)
@@ -44,7 +44,7 @@ class Sender(object):
         setattr(self, arg, kwargs[arg])                   #This sets the attribute with dynamic name
   
   def __str__(self):
-    return "*********************\nOBMP Sender Object\nAddress: %s (%s)\n*********************" % (self.address,self.addressType)
+    return "*********************\nSDIP Sender Object\nAddress: %s (%s)\n*********************" % (self.address,self.addressType)
     
   def _validateAddress(self, address):
     """
@@ -84,7 +84,7 @@ class Sender(object):
     allowedTimeTypes = ["epoch","rel"]
     
     splitTime = timeformat.split("-")
-    print splitTime
+    #print splitTime                                    #DEBUG
     if (splitTime[0] in allowedTimeFormats and splitTime[1] in allowedTimeTypes):       #Check that the timeformat is correctly formatted
       if splitTime[1] == "rel":                         #Time is relative, need to look at the start time
         if startTime != "":                             #StartTime was passed along so we're good
@@ -120,7 +120,7 @@ class Sender(object):
     allowedTimeTypes = ["epoch","rel"]
     try:
       splitStartTime = startTime['format'].split("-")
-      print splitStartTime
+      #print splitStartTime                            #DEBUG
     except KeyError:
       raise KeyError("The start time dictionnary is malformed. It needs to be in the following form: {'format': 'sec-epoch', 'time': 1383842840}")
       

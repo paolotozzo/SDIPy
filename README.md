@@ -1,4 +1,4 @@
-=== OMBPy: Python library for OBMP ===
+=== SDIPy: Python library for SDIP ===
 
 By Charles Fracchia <charlesfracchia@gmail.com> & Adam Marblestone <adam.h.marblestone@gmail.com> © 2013
 
@@ -6,4 +6,4 @@ This package allows you to craft packets in accordance with the Open BioMedical 
 
 === Use ===
 
-import obmpy
+import sdipy
